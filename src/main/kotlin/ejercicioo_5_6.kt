@@ -1,7 +1,17 @@
+/**
+ * @author Jesus Lopez
+ */
+
+/**
+ * @param esta clase crea el rectángulo con su altura y su base
+ */
 class Rectangulo(val altura:Int, val base:Int) {
+
+    // esta función calcula el área del rectángulo
     fun area(): Int {
         return altura*base
     }
+    //esta función calcula el perímetro del rectángulo
     fun perimetro(): Int{
         return (altura * 2) + (base * 2)
     }
