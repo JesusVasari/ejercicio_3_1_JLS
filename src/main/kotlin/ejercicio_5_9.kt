@@ -10,10 +10,15 @@ class Cuenta (val numeroCuenta:String, val saldo:Double) {
     }
 }
 class Persona (val DNI:String, ){
-    fun añadirCuenta(){
+
+
+    fun añadirCuenta(add:Array<Cuenta>){
 
     }
     fun moroso(){
 
+    //   if(Cuenta.)
     }
+   // var conSaldo:Cuenta=Cuenta()
+    //var sinSaldo:Cuenta=Cuenta()
 }
