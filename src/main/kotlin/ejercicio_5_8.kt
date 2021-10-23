@@ -18,19 +18,31 @@ class Tiempo(val hora:Int, val minuto:Int=0, val segundo:Int=0) {
 }
 fun main () {
 
-    //Solito la hora
+//Solito la hora
+    try{
     println("Dime la hora")
     var hora = readLine()!!.toInt()
+    }catch (e: Exception){
+        println("El valor debe ser un número")
+    }
     //comprobar que hora al pasarlo a entero no da excepción. Sino, salgo del prgrama
 
     //Solito la minutos
+    try {
     println("Dime la minutos")
     var minutos = readLine()!!.toInt()
+    }catch (e:Exception({
+        println("El valor debe ser un número")
+    }
     //comprobar que minuto al pasarlo a entero no da excepción. Sino, minuto = 0
 
     //Solito la segundos
+    try{
     println("Dime la segundos")
     var segundos = readLine()!!.toInt()
+    }catch (e:Exception){
+        println("El valor debe ser un número")
+    }
     //comprobar que minuto al pasarlo a entero no da excepción. Sino, minuto = 0
 
     var t: Tiempo?
