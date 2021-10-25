@@ -11,7 +11,7 @@ de forma que se puedan omitir los segundos o los minutos (y segundos, claro)
 e instancie la clase Tiempo mostrando su valor.
 */
 
-class Tiempo(val hora:Int, val minuto:Int=0, val segundo:Int=0) {
+class Tiempo(var hora:Int, var minuto:Int=0, var segundo:Int=0) {
     override fun toString(): String {
         return ""+hora+"h "+minuto+"m "+segundo+"s "
     }
@@ -31,7 +31,7 @@ fun main () {
     try {
     println("Dime la minutos")
     var minutos = readLine()!!.toInt()
-    }catch (e:Exception({
+    }catch (e:Exception){
         println("El valor debe ser un número")
     }
     //comprobar que minuto al pasarlo a entero no da excepción. Sino, minuto = 0
@@ -45,12 +45,14 @@ fun main () {
     }
     //comprobar que minuto al pasarlo a entero no da excepción. Sino, minuto = 0
 
-    var t: Tiempo?
 
-    when {
-        minutos == 0 && segundos==0 -> t = Tiempo(hora)
-        segundos==0 -> t = Tiempo(hora, minutos)
-        else -> t = Tiempo(hora, minutos, segundos)
+//hasta aquí va en el debug-------------------------
+    var t: Tiempo
+
+    when (Tiempo) {
+        t.minuto == 0 && t.segundo==0 -> t = Tiempo(t.hora)
+        t.segundo==0 -> t = Tiempo(t.hora, t.minuto)
+        else -> t = Tiempo(t.hora, t.minuto, t.segundo)
     }
 
 }
