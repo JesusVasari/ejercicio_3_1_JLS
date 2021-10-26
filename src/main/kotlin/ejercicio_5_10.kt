@@ -21,47 +21,50 @@ class Libros(val titulo:String, val autor:String, val paginas:Int, val calificac
  init {
   if (calificacion <10 || calificacion >0)
   println("La calificación debe ser entre 1 y 10")
- }
- }
+    }
+
  
-    fun obtenerTitulo(){
+    fun obtenerTitulo():String{
       return titulo
     }
-    fun obtenerAutor(){
+    fun obtenerAutor():String{
       return autor
     }
-    fun obtenerPaginas(){
+    fun obtenerPaginas():Int{
      return paginas
     }
-    fun obtenerCalificacion(){
+    fun obtenerCalificacion():Int{
      return calificacion
     }
 }
 class ConjuntoLibros(){
  var almacena: MutableList<Libros> =ArrayList(5)
 
- fun añadeLibro(libro:Libro){
-  almacena.add(Libro)
+ fun añadeLibro(libros: Libros){
+  almacena.add(libros)
  }
  fun deleteLibroTitulo(titulo:String) = almacena.removeIf {titulo.equals(it.titulo)}
+
  fun deleteLibroAutor(autor:String) = almacena.removeIf {autor.equals(it.autor)}
+
  fun calificacionAlta():String {
-  var alta = Libros.sortedBy{ libro -> Libro.calificacion}
- return "La calificación más alta es: $(alta.last().titulo)"
+  var alta = almacena.sortedBy{ Libros -> Libros.calificacion}
+ return "La calificación más alta es: $alta.last().titulo"
  }
- fun calificacionBaja ():String
- var baja = Libros.sortedBy{Libro -> Libro.calificacion}
- return "La calificación más baja es: $(baja.first().titulo)"
+ fun calificacionBaja ():String{
+ var baja = almacena.sortedBy{Libros -> Libros.calificacion}
+ return "La calificación más baja es: $baja.first().titulo"
 }
 fun ordenar():String {
  for (i in almacena.size -1){
      println(
-      "titulo$L(almacena.get(i).titulo), + autor$(almacena.get(i).autor), páginas($almacena.get(i)paginas), calificación($almacena.get(i).calificacion)"
+      "titulo($almacena.get(i).titulo), + autor($almacena.get(i).autor), páginas($almacena.get(i)paginas), calificación($almacena.get(i).calificacion)"
 } return ""
 }
-
+}
 fun main(){
-    var libro1:Libros=Libros(Lingüística germanica,Hans Krahe,399,9)
-    var libro2:Libros=Libros(Er ist wieder da,Timur Vermes,396,7)
-
+    var libro1:Libros=Libros("Lingüística germánica","Hans Krahe",399,9)
+    var libro2:Libros=Libros("Er ist wieder da","Timur Vermes",396,7)
+    listOf(libro1)
+    listOf(libro2)
 }
