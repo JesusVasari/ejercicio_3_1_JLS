@@ -58,8 +58,8 @@ class ConjuntoLibros(){
 fun ordenar():String {
  for (i in almacena.size -1){
      println(
-      "titulo($almacena.get(i).titulo), + autor($almacena.get(i).autor), páginas($almacena.get(i)paginas), calificación($almacena.get(i).calificacion)"
-} return ""
+      "titulo($almacena.get(i).titulo), + autor($almacena.get(i).autor), páginas($almacena.get(i)paginas), calificación($almacena.get(i).calificacion)")
+ }
 }
 }
 fun main(){
