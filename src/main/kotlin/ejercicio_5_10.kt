@@ -18,20 +18,50 @@ En el programa principal realizar las siguientes operaciones:
 
 class Libros(val titulo:String, val autor:String, val paginas:Int, val calificacion:Int) {
 
-    fun modificarAtributos(){
-
+ init {
+  if (calificacion <10 || calificacion >0)
+  println("La calificación debe ser entre 1 y 10")
+ }
+ }
+ 
+    fun obtenerTitulo(){
+      return titulo
     }
-    fun obtenerAtributos(){
-
+    fun obtenerAutor(){
+      return autor
+    }
+    fun obtenerPaginas(){
+     return paginas
+    }
+    fun obtenerCalificacion(){
+     return calificacion
     }
 }
 class ConjuntoLibros(){
- var almacena: MutableList<String> = mutableListOf()
+ var almacena: MutableList<Libros> =ArrayList(5)
 
+ fun añadeLibro(libro:Libro){
+  almacena.add(Libro)
+ }
+ fun deleteLibroTitulo(titulo:String) = almacena.removeIf {titulo.equals(it.titulo)}
+ fun deleteLibroAutor(autor:String) = almacena.removeIf {autor.equals(it.autor)}
+ fun calificacionAlta():String {
+  var alta = Libros.sortedBy{ libro -> Libro.calificacion}
+ return "La calificación más alta es: $(alta.last().titulo)"
+ }
+ fun calificacionBaja ():String
+ var baja = Libros.sortedBy{Libro -> Libro.calificacion}
+ return "La calificación más baja es: $(baja.first().titulo)"
+}
+fun ordenar():String {
+ for (i in almacena.size -1){
+     println(
+      "titulo$L(almacena.get(i).titulo), + autor$(almacena.get(i).autor), páginas($almacena.get(i)paginas), calificación($almacena.get(i).calificacion)"
+} return ""
 }
 
 fun main(){
-    var libro1:Libros=Libros("","",399,9)
-    var libro2:Libros=Libros("","",345,7)
+    var libro1:Libros=Libros(Lingüística germanica,Hans Krahe,399,9)
+    var libro2:Libros=Libros(Er ist wieder da,Timur Vermes,396,7)
 
 }
