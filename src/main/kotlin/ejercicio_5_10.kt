@@ -1,4 +1,3 @@
-
 /*
 Queremos mantener una colección de los libros que hemos ido leyendo,
  poniéndoles una calificación según nos haya gustado más o menos al leerlo.
@@ -16,55 +15,63 @@ En el programa principal realizar las siguientes operaciones:
 
  */
 
-class Libros(val titulo:String, val autor:String, val paginas:Int, val calificacion:Int) {
+class Libro(val titulo: String, val autor: String, val paginas: Int, val calificacion: Int) {
 
- init {
-  if (calificacion <10 || calificacion >0)
-  println("La calificación debe ser entre 1 y 10")
+    init {
+        if (calificacion > 10 || calificacion < 1)
+            println("La calificación debe ser entre 1 y 10")
     }
 
- 
-    fun obtenerTitulo():String{
-      return titulo
-    }
-    fun obtenerAutor():String{
-      return autor
-    }
-    fun obtenerPaginas():Int{
-     return paginas
-    }
-    fun obtenerCalificacion():Int{
-     return calificacion
+    override fun toString(): String {
+        return "titulo $titulo, autor$autor, páginas$paginas, calificación$calificacion"
     }
 }
-class ConjuntoLibros(){
- var almacena: MutableList<Libros> =ArrayList(5)
 
- fun añadeLibro(libros: Libros){
-  almacena.add(libros)
- }
- fun deleteLibroTitulo(titulo:String) = almacena.removeIf {titulo.equals(it.titulo)}
+class ConjuntoLibros() {
+    var almacen: MutableList<Libro> = ArrayList(5)
 
- fun deleteLibroAutor(autor:String) = almacena.removeIf {autor.equals(it.autor)}
+    fun añadeLibro(libro: Libro) {
+        almacen.add(libro)
+    }
 
- fun calificacionAlta():String {
-  var alta = almacena.sortedBy{ Libros -> Libros.calificacion}
- return "La calificación más alta es: $alta.last().titulo"
- }
- fun calificacionBaja ():String{
- var baja = almacena.sortedBy{Libros -> Libros.calificacion}
- return "La calificación más baja es: $baja.first().titulo"
+    fun deleteLibroTitulo(titulo: String) = almacen.removeIf { titulo.equals(it.titulo) }
+
+    fun deleteLibroAutor(autor: String) = almacen.removeIf { autor.equals(it.autor) }
+
+    fun calificacionAlta(): Libro {
+        var alta = almacen.sortedBy { Libros -> Libros.calificacion }
+        return alta.last()
+    }
+
+    fun calificacionBaja(): Libro {
+        var baja = almacen.sortedBy { Libros -> Libros.calificacion }
+        return baja.first()
+    }
+
+    override fun toString(): String {
+        var cjtoLibrosDesc = ""
+        for (libro in almacen) {
+            cjtoLibrosDesc+="$libro\n"
+        }
+        return cjtoLibrosDesc
+    }
 }
-fun ordenar():String {
- for (i in almacena.size -1){
-     println(
-      "titulo($almacena.get(i).titulo), + autor($almacena.get(i).autor), páginas($almacena.get(i)paginas), calificación($almacena.get(i).calificacion)")
- }
-}
-}
-fun main(){
-    var libro1:Libros=Libros("Lingüística germánica","Hans Krahe",399,9)
-    var libro2:Libros=Libros("Er ist wieder da","Timur Vermes",396,7)
-    listOf(libro1)
-    listOf(libro2)
+
+fun main() {
+    var libro1: Libro = Libro("Lingüística germánica", "Hans Krahe", 399, 9)
+    var libro2: Libro = Libro("Er ist wieder da", "Timur Vermes", 396, 7)
+
+    var unCojuntoDeLibros = ConjuntoLibros()
+    unCojuntoDeLibros.añadeLibro(libro1)
+    unCojuntoDeLibros.añadeLibro(libro2)
+    println("Creados dos libros")
+    println(unCojuntoDeLibros)
+
+    unCojuntoDeLibros.deleteLibroAutor("Hans Krahe")
+    println("Borrado un libro libros")
+    println(unCojuntoDeLibros)
+
+    unCojuntoDeLibros.deleteLibroTitulo("Er ist wieder da")
+    println("Borrado los dos libros libros")
+    println(unCojuntoDeLibros)
 }

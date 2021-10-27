@@ -11,6 +11,7 @@ de forma que se puedan omitir los segundos o los minutos (y segundos, claro)
 e instancie la clase Tiempo mostrando su valor.
 */
 
+/*
 class Tiempo(var hora:Int, var minuto:Int=0, var segundo:Int=0) {
     override fun toString(): String {
         return ""+hora+"h "+minuto+"m "+segundo+"s "
@@ -49,12 +50,12 @@ fun main () {
 //hasta aquí va en el debug-------------------------
     var t: Tiempo
 
-    when (Tiempo) {
-        t.minuto == 0 && t.segundo==0 -> t = Tiempo(t.hora)
-        t.segundo==0 -> t = Tiempo(t.hora, t.minuto)
-        else -> t = Tiempo(t.hora, t.minuto, t.segundo)
+    t = when  {
+        t.minuto == 0 && t.segundo==0 -> Tiempo(t.hora)
+        t.segundo==0 -> Tiempo(t.hora, t.minuto)
+        else -> Tiempo(t.hora, t.minuto, t.segundo)
     }
 
-}
+}*/
 
 

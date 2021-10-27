@@ -35,13 +35,13 @@ class Cuenta (val numeroCuenta:String, val saldo:Double) {
 
     }
 }
-class Persona (val DNI:String ){
+class Persona (val DNI:String){
 
 
-    fun añadirCuenta( añade:Array<Cuenta>){
+    fun añadirCuenta(añade:Array<Cuenta>){
         this.añadirCuenta(añade)
 
-      val  añade = ()
+      val añade = ()
 
     }
     fun moroso():Boolean{
