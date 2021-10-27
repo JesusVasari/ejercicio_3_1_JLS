@@ -21,46 +21,51 @@ y mostrar por pantalla el estado de la persona.
 
 
 
-/*
-class Cuenta (val numeroCuenta:String, val saldo:Double) {
 
+class Cuenta (val numeroCuenta:String, val saldo:Double=0.0) {
+    override fun toString(): String {
+        return "El número de cuenta es: $numeroCuenta y su saldo es: $saldo"
+    }
+    //hasta aquí con los parámetros de los dos objetos de cuenta funciona
 
     fun cobraSueldo():Double {
-
+        var cobra:Double = cobraSueldo()+this.saldo
+          return  this.saldo
     }
-    fun realizarPago() {
-
+    fun realizarPago():Double {
+        var paga:Double = realizarPago()-this.saldo
+          return  this.saldo
     }
-    fun trasferencia(){
-
+    fun consultaSaldo():Double{
+        this.saldo
+        return saldo
     }
 }
 class Persona (val DNI:String){
 
+    var cuentasBancarias:MutableList<Cuenta> =ArrayList(3)
 
-    fun añadirCuenta(añade:Array<Cuenta>){
-        this.añadirCuenta(añade)
-
-      val añade = ()
-
-    }
-    fun moroso():Boolean{
-        var cuenta:Cuenta=Cuenta(saldo =0.0)
-        if(cuenta <0) {
-            println("Es un moroso")
-            return true
+    fun addCuenta(cuenta:Cuenta){
+        cuentasBancarias.add(cuenta)
     }
 
-    var sinSaldo:Cuenta=Cuenta()
+
+
+
 }
-}
+
 fun main(){
     var persona:Persona=Persona("48394002Q")
-    var cuenta1:Cuenta=Cuenta("",saldo =0.0,)
-    cuenta1.cobraSueldo()       //1100
-    cuenta1.realizarPago()      //750
-    var cuenta2:Cuenta=Cuenta("",saldo = 700.0)
-    cuenta2.trasferencia()
+    var cuenta1:Cuenta=Cuenta("2323232323",saldo =0.0,)
+
+    var unConjuntoDeCuentas=Persona("48394002Q")
+    unConjuntoDeCuentas.addCuenta(cuenta1)
+    println(cuenta1)
+    cuenta1.cobraSueldo()      //1100
+
+    var cuenta2:Cuenta=Cuenta("3434343434",saldo = 700.0)
+    unConjuntoDeCuentas.addCuenta(cuenta2)
+    println(cuenta2)
+    cuenta2.realizarPago()   //750
 }
-}
-*/
+
