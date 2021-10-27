@@ -21,7 +21,7 @@ y mostrar por pantalla el estado de la persona.
 
 
 
-
+/*
 class Cuenta (val numeroCuenta:String, val saldo:Double=0.0) {
     override fun toString(): String {
         return "El número de cuenta es: $numeroCuenta y su saldo es: $saldo"
@@ -68,4 +68,4 @@ fun main(){
     println(cuenta2)
     cuenta2.realizarPago()   //750
 }
-
+*/
